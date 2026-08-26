@@ -1,5 +1,5 @@
-# Terraform variables for cloud-todo deployment
-# DO NOT commit this file if it contains real secrets
+# Example values — copy to terraform.tfvars and fill in real values.
+# Never commit terraform.tfvars if it contains secrets.
 
 aws_region        = "us-east-1"
 environment       = "dev"
@@ -10,12 +10,11 @@ db_name           = "cloudtodo"
 db_username       = "cloudtodo"
 
 ec2_instance_type = "t3.micro"
-ec2_ami_id      = "ami-014319f1f3bc954a4"   # Amazon Linux 2023 in us-east-1
-ec2_key_name    = "aws-todo"
+# ec2_ami_id      = "ami-0abcdef1234567890"   # Amazon Linux 2023 in us-east-1
+# ec2_key_name    = "my-key-pair"
 
 fargate_cpu       = 256
 fargate_memory    = 512
 app_desired_count = 1
 
-# Uncomment and set your GitHub repo for OIDC deployment:
-github_oidc_repo = "dhayaec/aws-todo"
+# github_oidc_repo = "myorg/cloud-todo"
