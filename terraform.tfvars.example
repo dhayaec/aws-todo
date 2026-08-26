@@ -11,7 +11,7 @@ db_username       = "cloudtodo"
 
 ec2_instance_type = "t3.micro"
 ec2_ami_id      = "ami-014319f1f3bc954a4"   # Amazon Linux 2023 in us-east-1
-ec2_key_name    = "dhayaec"
+ec2_key_name    = "aws-todo"
 
 fargate_cpu       = 256
 fargate_memory    = 512
