@@ -1,0 +1,20 @@
+# Example values — copy to terraform.tfvars and fill in real values.
+# Never commit terraform.tfvars if it contains secrets.
+
+aws_region        = "us-east-1"
+environment       = "dev"
+app_name          = "cloud-todo"
+
+db_instance_class = "db.t3.micro"
+db_name           = "cloudtodo"
+db_username       = "cloudtodo"
+
+ec2_instance_type = "t3.micro"
+# ec2_ami_id      = "ami-0abcdef1234567890"   # Amazon Linux 2023 in us-east-1
+# ec2_key_name    = "my-key-pair"
+
+fargate_cpu       = 256
+fargate_memory    = 512
+app_desired_count = 1
+
+# github_oidc_repo = "myorg/cloud-todo"
