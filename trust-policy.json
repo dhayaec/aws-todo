@@ -10,6 +10,9 @@
       "Condition": {
         "StringLike": {
           "token.actions.githubusercontent.com:sub": "repo:dhayaec/*"
+        },
+        "StringEquals": {
+          "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
         }
       }
     }
