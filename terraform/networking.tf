@@ -118,7 +118,7 @@ resource "aws_security_group" "app" {
 # RDS: only accept connections from the app security group
 resource "aws_security_group" "rds" {
   name        = "${var.app_name}-${var.environment}-rds"
-  description = "CloudTodo RDS — app access only"
+  description = "CloudTodo RDS - app access only"
   vpc_id      = aws_vpc.main.id
 
   ingress {

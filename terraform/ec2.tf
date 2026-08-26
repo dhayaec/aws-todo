@@ -1,6 +1,6 @@
 # EC2 instance — disabled when ec2_ami_id is not set
 resource "aws_instance" "app" {
-  count = var.ec2_ami_id != "" ? 1 : 0
+  count = 0
 
   ami                    = var.ec2_ami_id
   instance_type          = var.ec2_instance_type

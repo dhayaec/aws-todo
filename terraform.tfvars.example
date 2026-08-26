@@ -1,0 +1,21 @@
+# Terraform variables for cloud-todo deployment
+# DO NOT commit this file if it contains real secrets
+
+aws_region        = "us-east-1"
+environment       = "dev"
+app_name          = "cloud-todo"
+
+db_instance_class = "db.t3.micro"
+db_name           = "cloudtodo"
+db_username       = "cloudtodo"
+
+ec2_instance_type = "t3.micro"
+ec2_ami_id      = "ami-014319f1f3bc954a4"   # Amazon Linux 2023 in us-east-1
+ec2_key_name    = "dhayaec"
+
+fargate_cpu       = 256
+fargate_memory    = 512
+app_desired_count = 1
+
+# Uncomment and set your GitHub repo for OIDC deployment:
+github_oidc_repo = "dhayaec/aws-todo"
