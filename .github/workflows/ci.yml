@@ -74,3 +74,27 @@ jobs:
         run: pnpm build
         env:
           PRISMA_GENERATE_SKIP_AUTOINSTALL: "true"
+
+  terraform:
+    name: Terraform validate
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.9.0
+
+      - name: Terraform Init
+        run: |
+          cd terraform
+          terraform init -backend=false
+
+      - name: Terraform Validate
+        run: |
+          cd terraform
+          terraform validate

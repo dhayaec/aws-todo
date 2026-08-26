@@ -76,5 +76,10 @@ variable "github_oidc_repo" {
   description = "GitHub repo allowed to assume the deploy role (org/repo)"
   type        = string
   # e.g. "myorg/cloud-todo"
-  default     = ""
+  default     = "dhayaec/aws-todo"
+
+  validation {
+    condition = can(split("/", var.github_oidc_repo)) == true && length(split("/", var.github_oidc_repo)) == 2
+    error_message = "github_oidc_repo must be in format 'org/repo' (e.g., 'myorg/cloud-todo')"
+  }
 }
