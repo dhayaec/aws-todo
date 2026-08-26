@@ -1,10 +1,27 @@
-import { defineConfig, globalIgnores } from 'eslint/config';
+import { defineConfig } from 'eslint/config';
 import nextVitals from 'eslint-config-next/core-web-vitals';
 import nextTs from 'eslint-config-next/typescript';
 
 const eslintConfig = defineConfig([
   nextVitals,
   nextTs,
+  { name: 'project/ignores',
+    ignores: [
+      // Default ignores of eslint-config-next:
+      '.next/**',
+      'out/**',
+      'build/**',
+      'next-env.d.ts',
+      'coverage/**',
+      'dist/**',
+      'dist-tsc/**',
+      'node_modules/.cache/**',
+      'node_modules/.pnpm/**',
+      // Ignore generated Prisma files
+      'lib/generated/**',
+      'prisma/generated/**',
+    ],
+  },
   { name: 'project/strict',
     plugins: {
       react: await import('eslint-plugin-react').then(m => m.default || m),
@@ -28,20 +45,5 @@ const eslintConfig = defineConfig([
       'no-console': [ 'warn', { allow: ['warn', 'error'] } ],
       'no-debugger': 'warn',
     }},
-]);
-globalIgnores([
-  // Default ignores of eslint-config-next:
-  '.next/**',
-  'out/**',
-  'build/**',
-  'next-env.d.ts',
-  'coverage/**',
-  'dist/**',
-  'dist-tsc/**',
-  'node_modules/.cache/**',
-  'node_modules/.pnpm/**',
-  // Ignore generated Prisma files
-  'lib/generated/**/*',
-  'prisma/generated/**/*',
 ]);
 export default eslintConfig;
