@@ -1,21 +1,3 @@
-# ── GitHub OIDC provider ──────────────────────────────────────────────────────
-data "aws_iam_openid_connect_provider" "github" {
-  count = var.github_oidc_repo != "" ? 1 : 0
-  url   = "https://token.actions.githubusercontent.com"
-}
-
-resource "aws_iam_openid_connect_provider" "github" {
-  count = length(data.aws_iam_openid_connect_provider.github) == 0 ? 1 : 0
-
-  url             = "https://token.actions.githubusercontent.com"
-  client_id_list  = ["sts.amazonaws.com"]
-  thumbprint_list = ["6938fd4d98bab03faadb97b2c8a985aafd238d8a"]
-}
-
-locals {
-  github_oidc_arn = length(data.aws_iam_openid_connect_provider.github) > 0 ? data.aws_iam_openid_connect_provider.github[0].arn : aws_iam_openid_connect_provider.github[0].arn
-}
-
 # Fetch the live certificate thumbprint from GitHub
 data "tls_certificate" "github" {
   url = "https://token.actions.githubusercontent.com/.well-known/openid-configuration"
